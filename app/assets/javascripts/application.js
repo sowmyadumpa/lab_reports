@@ -25,19 +25,31 @@ close_dialog: function(){
 		$('.patient_form').find('form')[0].reset();
 },
 
+open_dialog: function(){
+	$( ".patient_form" ).dialog({
+		 width: 350,
+		 close: function( event, ui ) {
+		 	Patients.close_dialog();
+		 }
+	});
+},
+
 init: function(){
 		$('#new_patient').unbind('click').bind('click', function(e){
 		e.preventDefault();
-		$( ".patient_form" ).dialog({
-			 width: 350,
-			 close: function( event, ui ) {
-			 	Patients.close_dialog();
-			 }
-		});
+		Patients.open_dialog();
+	
 	});
+
 	$('#cancel_patient_creation').unbind('click').bind('click', function(e){
 		e.preventDefault();
 		$( ".patient_form" ).dialog('close');
+	});
+
+	$('.edit_patient_link').unbind('click').bind('click', function(e){
+		/*e.preventDefault();
+		var data = $(e.target).attr('data');
+		Patients.open_dialog();*/
 	});
 
 }
