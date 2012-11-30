@@ -3,6 +3,7 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     @patients = Patient.all
+    @patient = Patient.new 
 
     respond_to do |format|
       format.html # index.html.erb
@@ -39,20 +40,19 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
+
     
     params[:patient][:dob] = Time.parse(params[:patient]["dob(1i)"]+"-"+params[:patient]["dob(2i)"]+"-"+params[:patient]["dob(3i)"])
 
     
-    @patient = Patient.new(params[:patient])
-
-    respond_to do |format|
-      if @patient.save
-        format.html { redirect_to @patient, notice: 'Patient was successfully created.' }
-        format.json { render json: @patient, status: :created, location: @patient }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
+    @patient = Patient.new(params[:patient])    
+    @patient.save
+    @patients = Patient.all
+    respond_to do |format| 
+        if @patient.errors.blank?
+          @patient = Patient.new 
+        end     
+        format.js
     end
   end
 

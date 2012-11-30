@@ -1,0 +1,4 @@
+$(".patient_form" ).dialog('destroy').remove();
+var html = "#{escape_javascript render(:partial => 'patients/patients_list')}";
+$("#patient_content").html(html);
+Patients.init();

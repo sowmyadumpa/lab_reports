@@ -13,3 +13,33 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(function(){
+
+	Patients.init();
+
+});
+
+Patients ={
+
+close_dialog: function(){
+		$('.patient_form').find('form')[0].reset();
+},
+
+init: function(){
+		$('#new_patient').unbind('click').bind('click', function(e){
+		e.preventDefault();
+		$( ".patient_form" ).dialog({
+			 width: 350,
+			 close: function( event, ui ) {
+			 	Patients.close_dialog();
+			 }
+		});
+	});
+	$('#cancel_patient_creation').unbind('click').bind('click', function(e){
+		e.preventDefault();
+		$( ".patient_form" ).dialog('close');
+	});
+
+}
+
+}
