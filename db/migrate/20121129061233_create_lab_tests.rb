@@ -4,7 +4,7 @@ class CreateLabTests < ActiveRecord::Migration
       t.string :name
       t.string :description
       t.string :range
-      t.integer :lab_categories_id
+      t.integer :lab_category_id
       t.timestamps
     end
   end

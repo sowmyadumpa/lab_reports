@@ -1,4 +1,4 @@
 class LabTest < ActiveRecord::Base
-  # attr_accessible :title, :body
-  belongs_to :lab_category
+   belongs_to :lab_category
+   attr_accessible :name, :range, :description, :lab_category_id
 end

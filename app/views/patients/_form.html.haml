@@ -1,0 +1,20 @@
+.patient_form
+  = semantic_form_for @patient do |f|
+    
+    = f.input :first_name, :placeholder => 'First Name' , :label => false ,  :input_html => {:class => "text_box"}      
+    %br      
+    = f.input :last_name, :placeholder => 'Last Name' , :label => false ,  :input_html => {:class => "text_box flt-right", :style => "margin:-52px 350px 0px 0px;"}            
+    
+    %span.gender_type{:style => "padding-left:0px"}         
+      = f.radio_button :gender , 'Male', :checked =>true , :class => "radio"
+      = f.label :student ,"Male" , :class => 'g_label'
+      = f.radio_button :gender , 'Female', :class => "radio"
+      = f.label :gender ,"Female" , :class => 'g_label' 
+    %br
+    %br
+    = label_tag "DOB:", nil, :class => "g_label"
+    = f.date_select :dob, :label => false, :order => [:day, :month, :year]
+    %br
+    %br
+    .actions
+      = f.submit 'Save', :class => "submit_button"

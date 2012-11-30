@@ -25,6 +25,7 @@ gem 'haml-rails' , '0.3.5'
 gem 'formtastic' , '2.2.1'
 gem 'soft-deletable'
 
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -38,4 +39,4 @@ gem 'soft-deletable'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'

@@ -72,3 +72,111 @@ background:whitesmoke;
 	background: linear-gradient(45deg, rgba(76,76,76,1) 0%,rgba(89,89,89,1) 12%,rgba(102,102,102,1) 25%,rgba(71,71,71,1) 39%,rgba(44,44,44,1) 50%,rgba(43,43,43,1) 76%,rgba(28,28,28,1) 91%,rgba(17,17,17,1) 98%,rgba(19,19,19,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4c4c4c', endColorstr='#131313',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
+ol, ul {
+	list-style: none;
+}
+li{
+	list-style-type:none;
+}
+.patient_form{
+	width: 90%;
+	min-height: 400px;
+	margin: 30px 30px 30px 30px;
+}
+.patient_form select{
+	font-size: 13px;
+	padding: 5px;
+	height: 30px;
+}
+.flt-right{
+	float: right;
+}
+
+.flt-left{
+	float: left;
+}
+
+.text_box {
+	width: 25%;
+	height: 30px;
+	border-color: #A1A1A1;
+	border-width: 1px;
+}
+.g_label{
+	font-size: 17px;
+	font-family: cursive
+}
+
+.submit_button{
+	-moz-box-shadow: inset 0px 1px 0px 0px #ffffff;  
+	-webkit-box-shadow: inset 0px 1px 0px 0px white;
+	box-shadow: inset 0px 1px 0px 0px white;
+	background: -webkit-gradient( linear, left top, left bottom, color-stop(0.05, #DED7DE), color-stop(1, #DFDFDF) );
+	background: -moz-linear-gradient( center top, #DED7DE 5%, #DFDFDF 100% );
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ded7de', endColorstr='#dfdfdf');
+	background-color: #DED7DE;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid gainsboro;
+	display: inline-block;
+	color: #574C57;
+	font-family: arial;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 1px 0px 0px white;
+}
+.patients_table table
+{	
+	margin-top : 20px;
+	border-collapse:collapse;
+	width :100%;
+}
+
+.patients_table table td { 
+	padding:14px 7px 2px 7px;
+}
+
+.patients_table table th {
+	font-size:1.4em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#6485CC;
+	color:#fff;
+}
+.patients_table table tr.alt td {
+	color:#000;
+	background-color:#E6E6EB;
+	padding:14px 7px 2px 7px;
+}
+
+.new_patient_link {
+	float: right;	
+	font-size: 19px;
+	color: #6485CC;
+	font-weight: bold;
+}
+a:hover{
+	background-color: #666;
+}
+.edit_patient_link{
+	margin: 20px;
+	font-size: 1.4em;
+	color: #6485CC;
+
+}
+.arrow-down {	
+	width: 0; 
+	height: 0; 
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;	
+	border-top: 10px solid #6485CC;
+}
+.new_patient_link .arrow-down .list{
+	vertical-align: middle;
+}
+
+

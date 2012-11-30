@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129061233) do
+ActiveRecord::Schema.define(:version => 20121129123606) do
 
   create_table "lab_categories", :force => true do |t|
     t.string   "name"
@@ -25,12 +25,37 @@ ActiveRecord::Schema.define(:version => 20121129061233) do
     t.string   "name"
     t.string   "description"
     t.string   "range"
-    t.integer  "lab_categories_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.integer  "lab_category_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "patient_reports", :force => true do |t|
+    t.integer  "patient_id"
+    t.integer  "lab_category_id"
+    t.integer  "lab_test_id"
+    t.integer  "obtained_value"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "patients", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "full_name"
+    t.datetime "dob"
+    t.integer  "age"
+    t.string   "gender"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "full_name"
+    t.string   "email"
+    t.string   "mobile"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

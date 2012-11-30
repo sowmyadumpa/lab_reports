@@ -1,0 +1,17 @@
+%h1 Listing patient_reports
+
+%table
+  %tr
+    %th
+    %th
+    %th
+
+  - @patient_reports.each do |patient_report|
+    %tr
+      %td= link_to 'Show', patient_report
+      %td= link_to 'Edit', edit_patient_report_path(patient_report)
+      %td= link_to 'Destroy', patient_report, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Patient report', new_patient_report_path
