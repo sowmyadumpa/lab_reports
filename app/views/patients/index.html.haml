@@ -2,8 +2,9 @@
   %div{:style => "margin: 20px;"}   
     = link_to '+ Patient', new_patient_path ,:class =>"new_patient_link", :id => "new_patient"
     %span.arrow-down 
-    %label.list  List
+    %span.patients_list  List
   #patient_content
     = render 'patients_list'
+  = paginate @patients
 
   

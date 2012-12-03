@@ -164,10 +164,17 @@ a:hover{
 }
 .edit_patient_link{
 	margin: 20px;
-	font-size: 1.4em;
+	font-size: 1.2em;
 	color: #6485CC;
 
 }
+.patient_reports_link{
+	margin: 20px;
+	font-size: 1.2em;
+	color: #6485CC;
+
+}
+
 .arrow-down {	
 	width: 0; 
 	height: 0; 
@@ -180,3 +187,25 @@ a:hover{
 }
 
 
+.hide{
+	display: none;
+}
+
+.show{
+	display: block;
+}
+
+#error_explanation{
+	
+}
+
+.error_paragraph {
+	color:red;
+	margin: -25px 0px 0px 35px;
+}
+
+.patients_list{
+	position: absolute;
+	top: 16px;
+	left: 89px;
+}

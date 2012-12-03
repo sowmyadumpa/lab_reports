@@ -1,4 +1,9 @@
-$(".patient_form" ).dialog('destroy').remove();
-var html = "#{escape_javascript render(:partial => 'patients/patients_list')}";
-$("#patient_content").html(html);
-Patients.init();
+-if @patient.errors.blank?
+  $(".patient_form" ).dialog('destroy').remove();
+  var html = "#{escape_javascript render(:partial => 'patients/patients_list')}";
+  $("#patient_content").html(html);
+  Patients.init();
+-else
+  var html = "#{escape_javascript render(:partial => 'shared/errors_view', :locals => {:myobject => @patient})}";
+  $('#error_explanation').removeClass("hide").addClass("show");
+  $('#error_explanation').html(html);

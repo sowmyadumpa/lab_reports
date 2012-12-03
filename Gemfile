@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'haml-rails' , '0.3.5'
 gem 'formtastic' , '2.2.1'
 gem 'soft-deletable'
+gem 'kaminari'
 
 
 # To use ActiveModel has_secure_password

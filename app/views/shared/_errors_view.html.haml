@@ -1,0 +1,6 @@
+%ul
+  -myobject.errors.full_messages.each do |msg|
+    %li
+      %img{:src =>"/assets/warning-icon.jpg", :width => "30px",  :height => "24px"}/
+      %p.error_paragraph= msg
+%br

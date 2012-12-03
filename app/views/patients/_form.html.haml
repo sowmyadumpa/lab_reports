@@ -1,6 +1,7 @@
 .patient_form{:title => "New Patient", :style=>"display:none;"}
-  = semantic_form_for @patient, :remote => true do |f|
-  
+
+  = semantic_form_for @patient, :remote => true do |f|   
+    #error_explanation.hide    
     = f.hidden_field :id
     
     = f.input :first_name, :placeholder => 'First Name' , :label => false ,  :input_html => {:class => "text_box"}      

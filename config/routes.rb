@@ -1,10 +1,15 @@
 Labreports::Application.routes.draw do
   resources :patient_reports
 
-  resources :patients
+  resources :patients do
 
   #resources :users
-
+    resources :patient_reports do
+       collection do
+        get 'show_all'
+       end
+    end
+  end
   
 
   # The priority is based upon order of creation:

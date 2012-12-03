@@ -1,0 +1,8 @@
+#content.patients_table
+  %div{:style => "margin: 20px;"}   
+    = link_to '+ Report', new_patient_patient_report_path ,:class =>"new_patient_link", :id => "new_patient_report"
+    %span.arrow-down 
+    %span.patients_list  Reports List for #{@patient.name}
+  #patient_content
+    = render 'patient_report_list'
+  /= paginate @patient_reports

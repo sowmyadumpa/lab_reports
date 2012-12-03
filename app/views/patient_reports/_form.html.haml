@@ -1,15 +1,7 @@
-= semantic_form_for @patient_report do |f|
-  - if @patient_report.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@patient_report.errors.count, "error")} prohibited this patient_report from being saved:"
-      %ul
-        - @patient_report.errors.full_messages.each do |msg|
-          %li= msg
-    = f.input :first_name
-    = f.input :last_name
-    = f.input :email
-    = f.input :mobile
-    = f.input :dob
+= semantic_form_for @patient_report do |f|  
+  = f.hidden_field :patient_id
+  
+  = f.input :referred_by, :placeholder => 'Reference ' , :label => false ,  :input_html => {:class => "text_box"}
     
   .actions
     = f.submit 'Save'

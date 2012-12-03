@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129123606) do
+ActiveRecord::Schema.define(:version => 20121203111806) do
 
   create_table "lab_categories", :force => true do |t|
     t.string   "name"
@@ -30,13 +30,21 @@ ActiveRecord::Schema.define(:version => 20121129123606) do
     t.datetime "updated_at",      :null => false
   end
 
-  create_table "patient_reports", :force => true do |t|
+  create_table "patient_report_results", :force => true do |t|
     t.integer  "patient_id"
+    t.integer  "patient_reports_id"
     t.integer  "lab_category_id"
     t.integer  "lab_test_id"
-    t.integer  "obtained_value"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.string   "obtained_value"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "patient_reports", :force => true do |t|
+    t.integer  "patient_id"
+    t.string   "referred_by"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "patients", :force => true do |t|

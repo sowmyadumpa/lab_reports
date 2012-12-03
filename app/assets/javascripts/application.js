@@ -13,16 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$(function(){
-
+$(function(){	
 	Patients.init();
 
 });
 
 Patients ={
 
-close_dialog: function(){
-		$('.patient_form').find('form')[0].reset();
+close_dialog: function(){		
+		$(".patient_form" ).dialog('destroy').remove();		
 },
 
 open_dialog: function(){
@@ -37,7 +36,18 @@ open_dialog: function(){
 init: function(){
 		$('#new_patient').unbind('click').bind('click', function(e){
 		e.preventDefault();
-		Patients.open_dialog();
+		$.ajax({
+			url : '/patients/new',			
+			success: function(response){				
+				$("#patient_form_container").html(response);				
+				Patients.init();
+				Patients.open_dialog();
+			},
+      		async:false,        
+      		dataType: 'html'
+
+		});
+		
 	
 	});
 
@@ -47,9 +57,19 @@ init: function(){
 	});
 
 	$('.edit_patient_link').unbind('click').bind('click', function(e){
-		/*e.preventDefault();
-		var data = $(e.target).attr('data');
-		Patients.open_dialog();*/
+		e.preventDefault();
+		var id =$(e.target).attr('id');
+		$.ajax({
+			url : '/patients/' + id + '/edit',			
+			success: function(response){				
+				$("#patient_form_container").html(response);				
+				Patients.init();
+				Patients.open_dialog();
+			},
+      		async:false,        
+      		dataType: 'html'
+
+		});
 	});
 
 }

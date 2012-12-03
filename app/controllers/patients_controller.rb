@@ -2,8 +2,7 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
-    @patient = Patient.new 
+    @patients = Patient.order(:id).page(params[:page])   
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,31 +26,28 @@ class PatientsController < ApplicationController
   def new
     @patient = Patient.new    
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @patient }
+      format.js{render :partial => "form"}            
     end
   end
 
   # GET /patients/1/edit
   def edit
     @patient = Patient.find(params[:id])
+    respond_to do |format|
+      format.js{render :partial => "form"}
+    end
   end
 
   # POST /patients
   # POST /patients.json
   def create
-
-    
     params[:patient][:dob] = Time.parse(params[:patient]["dob(1i)"]+"-"+params[:patient]["dob(2i)"]+"-"+params[:patient]["dob(3i)"])
-
-    
     @patient = Patient.new(params[:patient])    
     @patient.save
-    @patients = Patient.all
-    respond_to do |format| 
-        if @patient.errors.blank?
-          @patient = Patient.new 
-        end     
+
+    @patients = Patient.order(:id).page(params[:page])
+
+    respond_to do |format|       
         format.js
     end
   end
@@ -60,16 +56,13 @@ class PatientsController < ApplicationController
   # PUT /patients/1.json
   def update
     @patient = Patient.find(params[:id])
+    @patient.update_attributes(params[:patient])
+    @patients = Patient.order(:id).page(params[:page])
+   
+    respond_to do |format|        
+      format.js {render :action => :create}
+    end    
 
-    respond_to do |format|
-      if @patient.update_attributes(params[:patient])
-        format.html { redirect_to @patient, notice: 'Patient was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @patient.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # DELETE /patients/1
