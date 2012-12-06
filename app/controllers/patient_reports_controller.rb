@@ -13,7 +13,9 @@ class PatientReportsController < ApplicationController
   # GET /patient_reports/1
   # GET /patient_reports/1.json
   def show
+    @show_reports = true
     @patient_report = PatientReport.find(params[:id])
+    @patient = Patient.find(@patient_report.patient_id)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,7 +40,7 @@ class PatientReportsController < ApplicationController
     @patient_report.patient_id = params[:patient_id]
 
     @patient = Patient.find(@patient_report.patient_id)
-    
+
     @categories = LabCategory.all
     @categories.each do |category|
         lab_items = category.lab_tests
