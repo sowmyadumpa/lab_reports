@@ -72,6 +72,12 @@ init: function(){
 		});
 	});
 
+	$('#patient_reports tr').die('click').live('click', function(e){
+    window.location = $(this).attr("show_link")
+    // Or, we can grab the HREF from the first anchor:
+    // window.location = $('a:first', this).attr('href');
+	});
+
 }
 
 }

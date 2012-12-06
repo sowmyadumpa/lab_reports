@@ -22,7 +22,7 @@ class PatientReportsController < ApplicationController
   end
 
   def show_all    
-    @patient_reports = PatientReport.find_by_patient_id(params[:patient_id]) || []
+    @patient_reports = PatientReport.find_all_by_patient_id(params[:patient_id]) || []
     @patient = Patient.find(params[:patient_id])
     respond_to do |format|
       format.html {render :action => "show_all"}      
@@ -38,8 +38,8 @@ class PatientReportsController < ApplicationController
     @categories = LabCategory.all
     @categories.each do |category|
         lab_items = category.lab_tests
-        lab_items.each do |item|       
-          @patient_report.patient_report_results.build
+        lab_items.each do |item|   
+          @patient_report.patient_report_results.build(:lab_category_id => category.id, :lab_test_id => item.id, :patient_id => params[:patient_id])
         end
     end
 
@@ -58,14 +58,15 @@ class PatientReportsController < ApplicationController
   # POST /patient_reports.json
   def create
     @patient_report = PatientReport.new(params[:patient_report])
+    @patient = Patient.find(@patient_report.patient_id)
 
     respond_to do |format|
       if @patient_report.save
-        format.html { redirect_to @patient_report, notice: 'Patient report was successfully created.' }
+        format.html { redirect_to show_all_patient_patient_reports_path(@patient) }
         format.json { render json: @patient_report, status: :created, location: @patient_report }
       else
-        format.html { render action: "new" }
-        format.json { render json: @patient_report.errors, status: :unprocessable_entity }
+        #format.html { render action: "new" }
+        #format.json { render json: @patient_report.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -74,10 +75,11 @@ class PatientReportsController < ApplicationController
   # PUT /patient_reports/1.json
   def update
     @patient_report = PatientReport.find(params[:id])
+    @patient = Patient.find(@patient_report.patient_id)
 
     respond_to do |format|
       if @patient_report.update_attributes(params[:patient_report])
-        format.html { redirect_to @patient_report, notice: 'Patient report was successfully updated.' }
+        format.html { redirect_to show_all_patient_patient_reports_path(@patient) }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

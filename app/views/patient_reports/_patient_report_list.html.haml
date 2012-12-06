@@ -1,16 +1,17 @@
-%table
+%table{:id => "patient_reports"}
   %tr
     %th REPORT ID
     %th PATIENT ID
     %th RECORDED AT
     %th REFERRED BY
-    
-  - @patient_reports.each_with_index do |report, i|
+ 
+  - (@patient_reports || []).each_with_index do |report, i|
     -class_name = (i%2 == 0) ? " " : "alt"
-    %tr{:class => "#{class_name}"}
-      %td= report.id
-      %td= report.patient.id
-      %td= report.created_at.strftime('%d %b, %Y')
-      %td= report.referred_by
+    %tr{:class => "#{class_name}", :show_link => patient_patient_report_path(@patient, report)}
+      %a
+        %td= report.id
+        %td= report.patient.id
+        %td= report.created_at.strftime('%d %b, %Y')
+        %td= report.referred_by
       
 %br

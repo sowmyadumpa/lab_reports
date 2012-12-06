@@ -1,7 +1,33 @@
 = semantic_form_for @patient_report do |f|  
   = f.hidden_field :patient_id
   
-  = f.input :referred_by, :placeholder => 'Reference ' , :label => false ,  :input_html => {:class => "text_box"}
-    
-  .actions
-    = f.submit 'Save'
+  = f.input :referred_by, :placeholder => 'Reference ' , :label => false ,  :input_html => {:class => "result_box"}
+  %br
+  .result_form
+    %table
+      %tr      
+        %th Category
+        %th Test
+        %th Obtained Values
+        %th Range
+      -prev = ""
+      = f.semantic_fields_for :patient_report_results do |result|  
+        %tr  
+          -name = result.object.lab_test.lab_category.name
+          -if prev != name
+            -prev = name
+            %td.category= "#{name}"
+          -else
+            %td &nbsp;          
+          = result.hidden_field :lab_category_id
+          = result.hidden_field :patient_id          
+
+          %td.test=result.object.lab_test.name
+
+          = result.hidden_field :lab_test_id
+          %td= result.input :obtained_value, :placeholder => 'Obtained Result ' , :label => false ,  :input_html => {:class => "result_box rest_box_attr"}
+          %td.test=result.object.lab_test.range
+          
+      
+    .actions
+      = f.submit 'Save'

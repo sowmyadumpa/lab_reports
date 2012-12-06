@@ -40,7 +40,7 @@
 }
 
 #content{
-	width: 900px;
+	width: 80%;
 	min-height: 720px;
 	overflow: hidden;
 	border: 2px solid #A1A1A1;
@@ -48,13 +48,14 @@
 	background: white;
 	border-radius: 25px;
 	margin: -35px 94px -30px;
-	position: relative
+	position: relative;	
 	-moz-box-shadow: -5px -5px 2px #888;
 	-webkit-box-shadow: -5px -5px 2px #888;
+	
 	box-shadow: -5px -5px 2px #888;
 
 	position: relative;
-	z-index: 
+	
 }
 body{
 background:whitesmoke;
@@ -128,18 +129,18 @@ li{
 	text-decoration: none;
 	text-shadow: 1px 0px 0px white;
 }
-.patients_table table
+.patients_table table , .result_form table
 {	
 	margin-top : 20px;
 	border-collapse:collapse;
 	width :100%;
 }
 
-.patients_table table td { 
+.patients_table table td, .result_form table td{ 
 	padding:14px 7px 2px 7px;
 }
 
-.patients_table table th {
+.patients_table table th, .result_form table th {
 	font-size:1.4em;
 	text-align:left;
 	padding-top:5px;
@@ -208,4 +209,19 @@ a:hover{
 	position: absolute;
 	top: 16px;
 	left: 89px;
+}
+.category{
+	color: #3B5998;
+	font-size: 1.1em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.test{
+	color: #3B5998;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+#patient_reports tr:hover{
+	cursor: pointer;
 }
