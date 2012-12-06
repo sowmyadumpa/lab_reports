@@ -1,11 +1,12 @@
 #header
+  %img.flt-right{:src=>"/assets/lab_reports.png", :id=>"logo"}
   #topnav
     %ul
       -if @show_reports
         %li
-          %a.flt-right{:href=>"#{show_all_patient_patient_reports_path(@patient)}"}Reports
+          %a.flt-left{:href=>"#{show_all_patient_patient_reports_path(@patient)}"}Reports
       %li
-        %a.flt-right{:href=>"#{patients_path}"}Patients
+        %a.flt-left{:href=>"#{patients_path}"}Patients
       
 
 
