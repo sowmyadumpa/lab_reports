@@ -16,7 +16,7 @@
     %br
     %br
     = label_tag "DOB:", nil, :class => "g_label"
-    = f.date_select :dob, :label => false, :order => [:day, :month, :year]
+    = f.date_select :dob, :label => false, :order => [:day, :month, :year], :start_year => 1900
     %br
     %br
     .actions
