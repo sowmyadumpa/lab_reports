@@ -1,4 +1,19 @@
 #header
+  #topnav
+    %ul
+      -if @show_reports
+        %li
+          %a.flt-right{:href=>"#{show_all_patient_patient_reports_path(@patient)}"}Reports
+      %li
+        %a.flt-right{:href=>"#{patients_path}"}Patients
+      
+
+
+
+
+
+
+
   / #tabs1{:style => "margin-left:50px;width:984px"}
   /   %ul
   /     %li
@@ -6,4 +21,3 @@
   /     %li
   /       %a{:href=>"/patient_reports"}Reports
   
-    

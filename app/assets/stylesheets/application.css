@@ -41,7 +41,7 @@
 
 #content{
 	width: 80%;
-	min-height: 720px;
+	min-height: 770px;
 	overflow: hidden;
 	border: 2px solid #A1A1A1;
 	padding: 10px 40px;
@@ -224,4 +224,18 @@ a:hover{
 }
 #patient_reports tr:hover{
 	cursor: pointer;
+}
+
+#topnav ul li a{
+	margin-right: 50px;
+	margin-top: 20px;
+	color: whiteSmoke;
+	border-style: solid;
+	border-width: 1px;
+	width: 100px;
+	height: 20px;
+	text-decoration: none;
+	border-color: #6A717C;
+	text-shadow: 1px 1px 0px;
+	padding: 9px 0px 5px 30px;
 }

@@ -32,9 +32,13 @@ class PatientReportsController < ApplicationController
   # GET /patient_reports/new
   # GET /patient_reports/new.json
   def new
+    @show_reports = true
 
     @patient_report = PatientReport.new
     @patient_report.patient_id = params[:patient_id]
+
+    @patient = Patient.find(@patient_report.patient_id)
+    
     @categories = LabCategory.all
     @categories.each do |category|
         lab_items = category.lab_tests
@@ -51,12 +55,15 @@ class PatientReportsController < ApplicationController
 
   # GET /patient_reports/1/edit
   def edit
+    @show_reports = true
     @patient_report = PatientReport.find(params[:id])
+    @patient = Patient.find(@patient_report.patient_id)
   end
 
   # POST /patient_reports
   # POST /patient_reports.json
   def create
+    @show_reports = true
     @patient_report = PatientReport.new(params[:patient_report])
     @patient = Patient.find(@patient_report.patient_id)
 
@@ -74,6 +81,7 @@ class PatientReportsController < ApplicationController
   # PUT /patient_reports/1
   # PUT /patient_reports/1.json
   def update
+    @show_reports = true
     @patient_report = PatientReport.find(params[:id])
     @patient = Patient.find(@patient_report.patient_id)
 
