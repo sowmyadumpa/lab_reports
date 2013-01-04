@@ -25,6 +25,8 @@ gem 'haml-rails' , '0.3.5'
 gem 'formtastic' , '2.2.1'
 gem 'soft-deletable'
 gem 'kaminari'
+gem 'prawn'
+gem 'pdfkit'
 
 
 # To use ActiveModel has_secure_password
@@ -40,4 +42,4 @@ gem 'kaminari'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+ gem 'debugger'

@@ -4,6 +4,7 @@
     %th PATIENT ID
     %th RECORDED AT
     %th REFERRED BY
+    %th DOWNLOAD LINK
  
   - (@patient_reports || []).each_with_index do |report, i|
     -class_name = (i%2 == 0) ? " " : "alt"
@@ -13,5 +14,6 @@
         %td= report.patient.id
         %td= report.created_at.strftime('%d %b, %Y')
         %td= report.referred_by
+        %td= link_to 'Download Report', patient_patient_report_path(@patient, report, :format => "pdf")
       
 %br

@@ -15,3 +15,4 @@ LabTest.create(lab_category_id: 1, name: 'Blood  Urea', description: "blood urea
 
 LabTest.create(lab_category_id: 2, name: 'ph', description: "ph", range: "upto 7")
 LabTest.create(lab_category_id: 2, name: 'Reaction', description: "reaction" , range: "acidic")
+User.create(:email=>"admin@cloudfoundry.com",:full_name=>"Admin",:password=>"sowmya123", :password_confirmation => "sowmya123",:role => "admin")

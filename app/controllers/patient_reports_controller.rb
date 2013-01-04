@@ -13,12 +13,19 @@ class PatientReportsController < ApplicationController
   # GET /patient_reports/1
   # GET /patient_reports/1.json
   def show
+
     @show_reports = true
     @patient_report = PatientReport.find(params[:id])
     @patient = Patient.find(@patient_report.patient_id)
 
     respond_to do |format|
       format.html # show.html.erb
+      format.pdf do
+        send_data PDFKit.new( patient_patient_report_path(@patient, @patient_report)).to_pdf, filename: "#{@patient.id}_#{@patient_report.id}_#{Time.now}.pdf",
+                            type: "application/pdf",
+                            disposition: "attachment"
+       #send_file  render :text => PDFKit.new( patient_patient_report_path(@patient, @patient_report)).to_pdf 
+     end
       format.json { render json: @patient_report }
     end
   end
@@ -64,7 +71,7 @@ class PatientReportsController < ApplicationController
 
   # POST /patient_reports
   # POST /patient_reports.json
-  def create
+  def create    
     @show_reports = true
     @patient_report = PatientReport.new(params[:patient_report])
     @patient = Patient.find(@patient_report.patient_id)
