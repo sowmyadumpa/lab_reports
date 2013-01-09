@@ -1,11 +1,10 @@
 Labreports::Application.routes.draw do
   resources :patient_reports
 
-  resources :home
-  
-
+  resources :home 
+  get "/signout" =>"home#signout", :as => "signout"
   resources :patients do
-
+  
 
   #resources :users
     resources :patient_reports do
@@ -13,6 +12,7 @@ Labreports::Application.routes.draw do
         get 'show_all'
        end
     end
+
   end
   
 

@@ -30,6 +30,12 @@ class HomeController < ApplicationController
 
     end
 
+    def signout
+        session[:user_id] = nil
+        session[:role] = nil    
+        redirect_to root_url
+    end
+
 
   end
 end
