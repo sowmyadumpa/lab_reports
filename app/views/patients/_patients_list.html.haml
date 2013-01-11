@@ -15,7 +15,7 @@
       %td
         = link_to 'Edit', edit_patient_path(patient) ,:class =>"edit_patient_link", :id=> patient.id, :data => patient.to_json
         = link_to 'Reports', show_all_patient_patient_reports_path(patient), :class =>"patient_reports_link"
-
+= paginate @patients ,:remote => true
 #patient_form_container
   
 %br

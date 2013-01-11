@@ -78,4 +78,11 @@ class PatientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def search
+    @patients = Patient.where("first_name like ? ", "%#{params[:search]}%").order(:id).page(params[:page])
+    respond_to do |format|
+      format.js    
+    end
+  end
 end

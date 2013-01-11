@@ -4,8 +4,9 @@ Labreports::Application.routes.draw do
   resources :home 
   get "/signout" =>"home#signout", :as => "signout"
   resources :patients do
-  
-
+    collection do
+      get 'search'
+    end
   #resources :users
     resources :patient_reports do
        collection do

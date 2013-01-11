@@ -1,10 +1,12 @@
 #content.patients_table 
   %div{:style => "margin: 20px;"}   
     = link_to '+ Patient', new_patient_path ,:class =>"new_patient_link", :id => "new_patient"
+    = form_tag(search_patients_path, :method => :get, :remote => true) do	  
+      =search_field_tag :search, nil, :class => "search", :id=> "search_patients"
     %span.arrow-down 
     %span.patients_list  List
   #patient_content
     = render 'patients_list'
-  = paginate @patients
+  
 
   
