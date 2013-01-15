@@ -80,7 +80,7 @@ class PatientsController < ApplicationController
   end
 
   def search
-    @patients = Patient.where("first_name like ? ", "%#{params[:search]}%").order(:id).page(params[:page])
+    @patients = Patient.where("first_name like ? or last_name like ? or mobile like ? or email like ? ", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%").order(:id).page(params[:page])
     respond_to do |format|
       format.js    
     end

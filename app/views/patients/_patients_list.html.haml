@@ -4,6 +4,8 @@
     %th FULL NAME
     %th DOB
     %th GENDER
+    %th PHONE
+    %th EMAIL
     %th &nbsp;
   - @patients.each_with_index do |patient, i|
     -class_name = (i%2 == 0) ? " " : "alt"
@@ -12,6 +14,8 @@
       %td= patient.name
       %td= patient.dob.strftime('%d %b, %Y')
       %td= patient.gender
+      %td= patient.mobile
+      %td= patient.email
       %td
         = link_to 'Edit', edit_patient_path(patient) ,:class =>"edit_patient_link", :id=> patient.id, :data => patient.to_json
         = link_to 'Reports', show_all_patient_patient_reports_path(patient), :class =>"patient_reports_link"
